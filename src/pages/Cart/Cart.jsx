@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import './cart.css';
+import './Cart.css';
 import { StoreContext } from '../../context/StoreContext';
 import { Link, useNavigate } from 'react-router-dom';
 import { calculateCartTotals } from '../../util/CartUtils';
