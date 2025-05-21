@@ -25,6 +25,7 @@ const Login = () => {
      const response =  await login(data);
      if(response.status === 200){
       setToken(response.data.token);
+      console.log(response.data.token);
       localStorage.setItem('token',response.data.token);
       await loadCartData(response.data.token)
       navigate("/");

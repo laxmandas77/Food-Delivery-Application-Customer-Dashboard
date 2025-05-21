@@ -30,7 +30,7 @@ const ExploreMenu = ({category,setCategory}) => {
                 {
                     categories.map((item,index) => {
                         return (
-                        <div className="text-center explore-menu-list-item" onClick={() => setCategory(prev => prev === item.category ? 'All' : item.category )}>
+                        <div key={index}  className="text-center explore-menu-list-item" onClick={() => setCategory(prev => prev === item.category ? 'All' : item.category )}>
                             <img src={item.icon} alt="" className={item.category === category ? 'rounded-circle active' : 'rounded-circle'} height={128} width={128}/>
                             <p className='mt-2 fw-bold'>{item.category}</p>
                         </div>

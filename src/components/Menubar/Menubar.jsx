@@ -33,14 +33,14 @@ const logout = () => {
               <Link className={active === "explore" ? "nav-link fw-bold active" : "nav-link"} to="/explore" onClick={() => setActive("explore")}>Explore</Link>
             </li>
             <li className="nav-item">
-              <Link className={active === "contact-us" ? "nav-link fw-bold active" : "nav-link"} to="/contact" onClick={() => setActive("contact-us")}>Conatct Us</Link>
+              <Link className={active === "contact-us" ? "nav-link fw-bold active" : "nav-link"} to="/contact" onClick={() => setActive("contact-us")}>Contact Us</Link>
             </li>
           </ul>
           <div className="d-flex align-items-center gap-4">
             <Link to="/cart">
               <div className="position-relative">
                 <img src={assets.cart} alt="" height={28} width={28} className='position-relative' />
-                <span className='postion-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning'>{uniqueItemsInCart}</span>
+                <span className='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning'>{uniqueItemsInCart}</span>
               </div>
             </Link>
             {
