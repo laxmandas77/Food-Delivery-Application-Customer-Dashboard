@@ -51,7 +51,7 @@ const PlaceOrder = () => {
 		};
 
 		try {
-			const response = await axios.post('http://localhost:8080/api/orders/create', orderData, { headers: { 'Authorization': `Bearer ${token}` } });
+			const response = await axios.post('https://food-delivery-application-backend-production-dc3a.up.railway.app/api/orders/create', orderData, { headers: { 'Authorization': `Bearer ${token}` } });
 			if (response.status === 201 && response.data.razorpayOrderId) {
 				//intitate the payment
 				initiateRazorpayPayment(response.data);
@@ -100,7 +100,7 @@ const PlaceOrder = () => {
 			razorpay_signature: razorpayResponse.razorpay_signature
 		};
 		try {
-			const response = await axios.post("http://localhost:8080/api/orders/verify", paymentData, { headers: { 'Authorization': `Bearer ${token}` } });
+			const response = await axios.post("https://food-delivery-application-backend-production-dc3a.up.railway.app/api/orders/verify", paymentData, { headers: { 'Authorization': `Bearer ${token}` } });
 			if (response.status === 200) {
 				toast.success('Payment successful.');
 				await clearCart();
@@ -116,7 +116,7 @@ const PlaceOrder = () => {
 
 	const deleteOrder = () => async(orderId) => {
 		try {
-			await axios.delete("http://localhost:8080/api/orders/"+orderId, { headers: { 'Authorization': `Bearer ${token}` }});
+			await axios.delete("https://food-delivery-application-backend-production-dc3a.up.railway.app/api/orders/"+orderId, { headers: { 'Authorization': `Bearer ${token}` }});
 		} catch (error) {
 			toast.error('Something went wrong.Contact support');
 		}
@@ -124,7 +124,7 @@ const PlaceOrder = () => {
 
 	const clearCart = async() => {
 		try {
-			await axios.delete("http://localhost:8080/api/cart",{ headers: { 'Authorization': `Bearer ${token}` }});
+			await axios.delete("https://food-delivery-application-backend-production-dc3a.up.railway.app/api/cart",{ headers: { 'Authorization': `Bearer ${token}` }});
 			setQuantities({});
 		} catch (error) {
 			toast.error('Error while clearing the cart');
